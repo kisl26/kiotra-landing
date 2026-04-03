@@ -1,4 +1,35 @@
+'use client'
+
+import { useState } from 'react'
+
 export default function Home() {
+  const [formState, setFormState] = useState({ status: 'idle', message: '' })
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setFormState({ status: 'sending', message: '' })
+
+    const form = e.target
+    const data = new FormData(form)
+
+    try {
+      const res = await fetch('https://formspree.io/f/DEINE_FORM_ID', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (res.ok) {
+        setFormState({ status: 'success', message: 'Nachricht gesendet! Wir melden uns innerhalb von 24h.' })
+        form.reset()
+      } else {
+        setFormState({ status: 'error', message: 'Fehler beim Senden. Bitte versuchen Sie es erneut.' })
+      }
+    } catch {
+      setFormState({ status: 'error', message: 'Netzwerkfehler. Bitte prüfen Sie Ihre Verbindung.' })
+    }
+  }
+
   return (
     <>
       <style>{`
@@ -145,9 +176,18 @@ export default function Home() {
           text-decoration: none;
           transition: background 0.2s, transform 0.15s;
           display: inline-block;
+          border: none;
+          cursor: pointer;
+          font-family: var(--sans);
         }
 
         .btn-primary:hover { background: #86efac; transform: translateY(-1px); }
+
+        .btn-primary:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
 
         .btn-secondary {
           color: var(--muted);
@@ -161,41 +201,6 @@ export default function Home() {
         }
 
         .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
-
-        /* GRID STATS */
-        .stats-strip {
-          border-top: 1px solid var(--border);
-          border-bottom: 1px solid var(--border);
-          padding: 40px;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0;
-        }
-
-        .stat-item {
-          padding: 0 40px;
-          border-right: 1px solid var(--border);
-        }
-
-        .stat-item:first-child { padding-left: 0; }
-        .stat-item:last-child { border-right: none; }
-
-        .stat-num {
-          font-family: var(--serif);
-          font-size: 48px;
-          line-height: 1;
-          color: var(--text);
-          letter-spacing: -0.03em;
-          margin-bottom: 6px;
-        }
-
-        .stat-num span { color: var(--accent); }
-
-        .stat-desc {
-          font-size: 13px;
-          color: var(--muted);
-          line-height: 1.4;
-        }
 
         /* SECTION */
         section {
@@ -230,45 +235,6 @@ export default function Home() {
           line-height: 1.7;
           font-weight: 300;
           margin-bottom: 60px;
-        }
-
-        /* HOW IT WORKS */
-        .steps {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: var(--border);
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          overflow: hidden;
-        }
-
-        .step {
-          background: var(--bg2);
-          padding: 36px 32px;
-        }
-
-        .step-num {
-          font-family: var(--serif);
-          font-size: 48px;
-          color: var(--border2);
-          line-height: 1;
-          margin-bottom: 20px;
-          letter-spacing: -0.03em;
-        }
-
-        .step-title {
-          font-size: 16px;
-          font-weight: 500;
-          color: var(--text);
-          margin-bottom: 10px;
-        }
-
-        .step-desc {
-          font-size: 14px;
-          color: var(--muted);
-          line-height: 1.6;
-          font-weight: 300;
         }
 
         /* USE CASES */
@@ -326,62 +292,85 @@ export default function Home() {
           letter-spacing: 0.04em;
         }
 
-        /* TECH STRIP */
-        .tech-strip {
-          border-top: 1px solid var(--border);
-          border-bottom: 1px solid var(--border);
-          padding: 32px 40px;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          overflow: hidden;
-        }
-
-        .tech-label {
-          font-size: 11px;
-          color: var(--muted);
-          white-space: nowrap;
-          flex-shrink: 0;
-          text-transform: uppercase;
-          letter-spacing: 0.06em;
-        }
-
-        .tech-divider {
-          width: 1px;
-          height: 20px;
-          background: var(--border2);
-          flex-shrink: 0;
-        }
-
-        .tech-tags {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
-        .tech-tag {
-          background: var(--bg3);
-          border: 1px solid var(--border);
-          border-radius: 20px;
-          padding: 4px 14px;
-          font-size: 12px;
-          color: var(--muted);
-        }
-
-        /* CTA */
+        /* CONTACT FORM */
         .cta-block {
           background: var(--bg2);
           border: 1px solid var(--border);
           border-radius: 16px;
           padding: 72px 60px;
-          text-align: center;
-          margin: 0 40px;
           max-width: 1020px;
           margin: 0 auto 100px;
         }
 
         .cta-block h2 { margin: 0 auto 16px; text-align: center; }
         .cta-block .section-body { margin: 0 auto 36px; text-align: center; }
+
+        .contact-form {
+          max-width: 560px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          width: 100%;
+          background: var(--bg3);
+          border: 1px solid var(--border2);
+          border-radius: 8px;
+          padding: 14px 16px;
+          color: var(--text);
+          font-family: var(--sans);
+          font-size: 14px;
+          transition: border-color 0.2s;
+          outline: none;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+          color: var(--muted);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+          border-color: var(--accent);
+        }
+
+        .contact-form textarea {
+          resize: vertical;
+          min-height: 120px;
+        }
+
+        .form-submit {
+          text-align: center;
+          margin-top: 8px;
+        }
+
+        .form-message {
+          text-align: center;
+          font-size: 14px;
+          padding: 12px;
+          border-radius: 8px;
+        }
+
+        .form-message.success {
+          color: var(--accent);
+          background: rgba(74, 222, 128, 0.1);
+          border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .form-message.error {
+          color: #f87171;
+          background: rgba(248, 113, 113, 0.1);
+          border: 1px solid rgba(248, 113, 113, 0.2);
+        }
 
         /* FOOTER */
         footer {
@@ -423,15 +412,11 @@ export default function Home() {
           nav { padding: 16px 20px; }
           .nav-links { gap: 16px; }
           .hero { padding: 100px 20px 60px; }
-          .stats-strip { grid-template-columns: 1fr; padding: 0 20px; }
-          .stat-item { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--border); }
-          .stat-item:last-child { border-bottom: none; }
           section { padding: 60px 20px; }
-          .steps { grid-template-columns: 1fr; }
           .cases { grid-template-columns: 1fr; }
           .cta-block { padding: 48px 24px; margin: 0 20px 60px; }
+          .form-row { grid-template-columns: 1fr; }
           footer { flex-direction: column; gap: 12px; padding: 24px 20px; text-align: center; }
-          .tech-strip { padding: 24px 20px; }
         }
       `}</style>
 
@@ -439,8 +424,7 @@ export default function Home() {
         <div className="logo">kiotra<span>.</span></div>
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
-          <a href="#technologie">Technologie</a>
-          <a href="mailto:info@kiotra.de">Kontakt</a>
+          <a href="#kontakt">Kontakt</a>
           <a href="https://pumpensteuerung.kiotra.de" className="nav-cta">Demo ansehen</a>
         </div>
       </nav>
@@ -454,22 +438,7 @@ export default function Home() {
         </p>
         <div className="hero-actions">
           <a href="https://pumpensteuerung.kiotra.de" className="btn-primary">Live-Demo ansehen</a>
-          <a href="mailto:info@kiotra.de" className="btn-secondary">Gespräch vereinbaren</a>
-        </div>
-      </div>
-
-      <div className="stats-strip">
-        <div className="stat-item">
-          <div className="stat-num">48<span>h</span></div>
-          <div className="stat-desc">Typische Zeit vom Erstgespräch<br />bis zum laufenden Piloten</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-num">0<span>€</span></div>
-          <div className="stat-desc">Investitionskosten für<br />Ihre Endkunden</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-num">100<span>%</span></div>
-          <div className="stat-desc">Browserbasiert — keine App-<br />Installation nötig</div>
+          <a href="#kontakt" className="btn-secondary">Gespräch vereinbaren</a>
         </div>
       </div>
 
@@ -520,62 +489,37 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="tech-strip">
-        <span className="tech-label">Technologie</span>
-        <div className="tech-divider" />
-        <div className="tech-tags">
-          {['ESP32', 'Modbus RTU', 'MQTT', 'HiveMQ Cloud', 'Next.js', 'Supabase', 'Vercel', 'PWA'].map(t => (
-            <span key={t} className="tech-tag">{t}</span>
-          ))}
-        </div>
-      </div>
-
-      <section id="technologie">
-        <div className="section-label">So funktioniert es</div>
-        <h2>Drei Schritte bis zur laufenden App</h2>
+      <div className="cta-block" id="kontakt">
+        <div className="section-label" style={{marginBottom: '20px', textAlign: 'center'}}>Kontakt</div>
+        <h2>Lassen Sie uns sprechen</h2>
         <p className="section-body">
-          Kein Programmieraufwand für Sie. Kein Eingriff in die CE-Kennzeichnung.
-          Keine monatlichen Fixkosten bis die ersten Maschinen im Feld sind.
+          Erzählen Sie uns von Ihrem Projekt. Wir melden uns innerhalb von 24 Stunden
+          mit einem konkreten Vorschlag.
         </p>
-        <div className="steps">
-          <div className="step">
-            <div className="step-num">01</div>
-            <div className="step-title">Hardware einbauen</div>
-            <div className="step-desc">
-              Ihr Elektriker baut ein kleines WLAN-Modul in den Schaltschrank ein und
-              klemmt es an den Modbus-Port des Frequenzumrichters. Kein Eingriff in
-              die Steuerung, keine CE-Problematik.
-            </div>
-          </div>
-          <div className="step">
-            <div className="step-num">02</div>
-            <div className="step-title">QR-Code scannen</div>
-            <div className="step-desc">
-              Jede Maschine bekommt einen QR-Code auf dem Schaltschrank. Ihr Endkunde
-              scannt ihn einmal mit dem Handy — die Maschine erscheint sofort in seiner App.
-              Kein Account-Setup, kein Passwort.
-            </div>
-          </div>
-          <div className="step">
-            <div className="step-num">03</div>
-            <div className="step-title">Steuern & überwachen</div>
-            <div className="step-desc">
-              Der Endkunde öffnet die App im Browser — auf jedem Handy, Tablet oder PC.
-              Ein/Aus, Drehzahlregelung, Statusanzeige in Echtzeit. Auch wenn er
-              gerade nicht vor der Maschine steht.
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <div className="cta-block">
-        <div className="section-label" style={{marginBottom: '20px'}}>Jetzt starten</div>
-        <h2>Ihr erstes Gerät in 48 Stunden online</h2>
-        <p className="section-body">
-          Wir besprechen Ihr Projekt, klären die technischen Details und
-          haben einen Piloten laufen — bevor Sie eine Entscheidung treffen müssen.
-        </p>
-        <a href="mailto:info@kiotra.de" className="btn-primary">Kostenloses Erstgespräch</a>
+        {formState.status === 'success' ? (
+          <div className="form-message success">{formState.message}</div>
+        ) : (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <input type="text" name="name" placeholder="Name *" required />
+              <input type="email" name="email" placeholder="E-Mail *" required />
+            </div>
+            <div className="form-row">
+              <input type="text" name="firma" placeholder="Firma" />
+              <input type="tel" name="telefon" placeholder="Telefon" />
+            </div>
+            <textarea name="nachricht" placeholder="Ihre Nachricht *" required />
+            {formState.status === 'error' && (
+              <div className="form-message error">{formState.message}</div>
+            )}
+            <div className="form-submit">
+              <button type="submit" className="btn-primary" disabled={formState.status === 'sending'}>
+                {formState.status === 'sending' ? 'Wird gesendet...' : 'Nachricht senden'}
+              </button>
+            </div>
+          </form>
+        )}
       </div>
 
       <footer>

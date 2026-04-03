@@ -81,7 +81,7 @@ export default function Home() {
           letter-spacing: -0.02em;
         }
 
-        .logo span { color: var(--accent); }
+        .logo span { color: #2dd4bf; }
 
         nav a {
           color: var(--muted);
@@ -93,18 +93,6 @@ export default function Home() {
         nav a:hover { color: var(--text); }
 
         .nav-links { display: flex; gap: 32px; align-items: center; }
-
-        .nav-cta {
-          background: var(--accent);
-          color: #0d0f0e !important;
-          padding: 8px 18px;
-          border-radius: 6px;
-          font-weight: 500;
-          font-size: 13px !important;
-          transition: background 0.2s !important;
-        }
-
-        .nav-cta:hover { background: #86efac !important; color: #0d0f0e !important; }
 
         /* HERO */
         .hero {
@@ -428,7 +416,7 @@ export default function Home() {
           color: var(--muted);
         }
 
-        .footer-logo span { color: var(--accent); }
+        .footer-logo span { color: #2dd4bf; }
 
         .footer-copy {
           font-size: 12px;
@@ -461,11 +449,10 @@ export default function Home() {
       `}</style>
 
       <nav>
-        <div className="logo">kiotra<span>.</span></div>
+        <div className="logo">k<span>iot</span>ra</div>
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
           <a href="#kontakt">Kontakt</a>
-          <a href="https://pumpensteuerung.kiotra.de" className="nav-cta">Demo ansehen</a>
         </div>
       </nav>
 
@@ -601,7 +588,7 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="footer-logo">kiotra<span>.</span></div>
+        <div className="footer-logo">k<span>iot</span>ra</div>
         <div className="footer-copy">© 2025 Kiotra · Ein Produkt der athebo.com · info@kiotra.de</div>
       </footer>
     </>

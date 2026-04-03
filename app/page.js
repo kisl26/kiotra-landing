@@ -557,6 +557,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="sicherheit">
+        <div className="section-label">Sicherheit</div>
+        <h2>Für welche Maschinen ist das geeignet?</h2>
+        <p className="section-body" style={{maxWidth: '680px'}}>
+          Die App-Steuerung von Kiotra ist für Maschinen konzipiert, bei denen Ein/Aus und
+          Drehzahlregelung im Normalbetrieb ferngesteuert werden sollen — ohne Eingriff in die
+          bestehende Sicherheitstechnik. Typische Anwendungen sind Pumpen, Förderbänder, Mischer
+          und Lüftungsanlagen mit Frequenzumrichter, die bereits über eine Modbus-RTU-Schnittstelle
+          verfügen. Notaus, Motorschutz und alle sicherheitsrelevanten Funktionen bleiben dabei
+          vollständig erhalten und werden durch die App-Steuerung nicht berührt. Kiotra übernimmt
+          ausschließlich Komfortfunktionen — die Verantwortung für die Maschinensicherheit verbleibt
+          beim Hersteller und seiner bestehenden Steuerungstechnik.
+        </p>
+      </section>
+
       <div className="cta-block" id="kontakt">
         <div className="section-label" style={{marginBottom: '20px', textAlign: 'center'}}>Kontakt</div>
         <h2>Lassen Sie uns sprechen</h2>

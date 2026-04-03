@@ -122,7 +122,7 @@ export default function Datenschutz() {
           Marc Schilling<br />
           Kapellenbergstraße 8<br />
           61389 Schmitten<br />
-          E-Mail: <a href="mailto:info@kiotra.de">info@kiotra.de</a>
+          E-Mail: <a href="mailto:schmd84@gmail.com">schmd84@gmail.com</a>
         </p>
 
         <h2>2. Hosting</h2>
@@ -177,7 +177,7 @@ export default function Datenschutz() {
         </ul>
         <p>
           Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{' '}
-          <a href="mailto:info@kiotra.de">info@kiotra.de</a>
+          <a href="mailto:schmd84@gmail.com">schmd84@gmail.com</a>
         </p>
 
         <h2>6. Beschwerderecht</h2>

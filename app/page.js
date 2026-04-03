@@ -473,7 +473,7 @@ export default function Home() {
 
       <section id="loesungen">
         <div className="section-label">Lösungen</div>
-        <h2>Für Maschinenbauer im DACH-Raum</h2>
+        <h2>Für Maschinenbauer</h2>
         <p className="section-body">
           Wir bauen die Software. Sie liefern die Maschine. Ihre Kunden bekommen eine
           App die einfach funktioniert.
@@ -481,7 +481,7 @@ export default function Home() {
         <div className="cases">
           <div className="case-card">
             <div className="case-icon">⚙</div>
-            <div className="case-title">Pumpensteuerung</div>
+            <div className="case-title">Maschinen steuern per App</div>
             <div className="case-desc">
               Frequenzumrichter per App steuern — Ein/Aus, Drehzahl, Echtzeitstatus.
               Modbus RTU über WLAN, ohne Eingriff in die bestehende Steuerung.

@@ -463,15 +463,12 @@ export default function Home() {
       </nav>
 
       <div className="hero">
-        <div className="hero-tag">Industrie IoT für den Mittelstand</div>
+        <div className="hero-tag">IoT für den Maschinenbau</div>
         <h1>Ihre Maschinen.<br /><em>Online.</em> In Echtzeit.</h1>
         <p className="hero-body">
           Kiotra verbindet Frequenzumrichter, Steuerungen und Industrieanlagen mit der Cloud —
           ohne großes IT-Projekt. Ihre Kunden steuern ihre Maschinen per App vom Handy.
         </p>
-        <div className="hero-actions">
-          <a href="https://pumpensteuerung.kiotra.de" className="btn-primary">Live-Demo ansehen</a>
-        </div>
       </div>
 
       <section id="loesungen">

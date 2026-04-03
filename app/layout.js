@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Kiotra — Industrie IoT für den Mittelstand',
+  title: 'kiotra - IoT für den Maschinenbau',
   description: 'Kiotra verbindet Ihre Maschinen mit der Cloud. Einfach. Sicher. Ohne großes IT-Projekt.',
 }
 

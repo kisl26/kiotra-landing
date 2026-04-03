@@ -81,7 +81,7 @@ export default function Home() {
           letter-spacing: -0.02em;
         }
 
-        .logo span { color: #2dd4bf; }
+        .logo span { color: var(--accent); }
 
         nav a {
           color: var(--muted);
@@ -416,7 +416,7 @@ export default function Home() {
           color: var(--muted);
         }
 
-        .footer-logo span { color: #2dd4bf; }
+        .footer-logo span { color: var(--accent); }
 
         .footer-copy {
           font-size: 12px;
@@ -465,7 +465,6 @@ export default function Home() {
         </p>
         <div className="hero-actions">
           <a href="https://pumpensteuerung.kiotra.de" className="btn-primary">Live-Demo ansehen</a>
-          <a href="#kontakt" className="btn-secondary">Gespräch vereinbaren</a>
         </div>
       </div>
 

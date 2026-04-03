@@ -292,6 +292,45 @@ export default function Home() {
           letter-spacing: 0.04em;
         }
 
+        /* HOW IT WORKS */
+        .steps {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .step {
+          background: var(--bg2);
+          padding: 36px 32px;
+        }
+
+        .step-num {
+          font-family: var(--serif);
+          font-size: 48px;
+          color: var(--border2);
+          line-height: 1;
+          margin-bottom: 20px;
+          letter-spacing: -0.03em;
+        }
+
+        .step-title {
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--text);
+          margin-bottom: 10px;
+        }
+
+        .step-desc {
+          font-size: 14px;
+          color: var(--muted);
+          line-height: 1.6;
+          font-weight: 300;
+        }
+
         /* CONTACT FORM */
         .cta-block {
           background: var(--bg2);
@@ -414,6 +453,7 @@ export default function Home() {
           .hero { padding: 100px 20px 60px; }
           section { padding: 60px 20px; }
           .cases { grid-template-columns: 1fr; }
+          .steps { grid-template-columns: 1fr; }
           .cta-block { padding: 48px 24px; margin: 0 20px 60px; }
           .form-row { grid-template-columns: 1fr; }
           footer { flex-direction: column; gap: 12px; padding: 24px 20px; text-align: center; }
@@ -485,6 +525,44 @@ export default function Home() {
               Kiotra arbeitet unsichtbar im Hintergrund.
             </div>
             <div className="case-tag">→ Auf Anfrage</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="technologie">
+        <div className="section-label">So funktioniert es</div>
+        <h2>Drei Schritte bis zur laufenden App</h2>
+        <p className="section-body">
+          Kein Programmieraufwand für Sie. Kein Eingriff in die CE-Kennzeichnung.
+          Keine monatlichen Fixkosten bis die ersten Maschinen im Feld sind.
+        </p>
+        <div className="steps">
+          <div className="step">
+            <div className="step-num">01</div>
+            <div className="step-title">Hardware einbauen</div>
+            <div className="step-desc">
+              Ihr Elektriker baut ein kleines WLAN-Modul in den Schaltschrank ein und
+              klemmt es an den Modbus-Port des Frequenzumrichters. Kein Eingriff in
+              die Steuerung, keine CE-Problematik.
+            </div>
+          </div>
+          <div className="step">
+            <div className="step-num">02</div>
+            <div className="step-title">QR-Code scannen</div>
+            <div className="step-desc">
+              Jede Maschine bekommt einen QR-Code auf dem Schaltschrank. Ihr Endkunde
+              scannt ihn einmal mit dem Handy — die Maschine erscheint sofort in seiner App.
+              Kein Account-Setup, kein Passwort.
+            </div>
+          </div>
+          <div className="step">
+            <div className="step-num">03</div>
+            <div className="step-title">Steuern & überwachen</div>
+            <div className="step-desc">
+              Der Endkunde öffnet die App im Browser — auf jedem Handy, Tablet oder PC.
+              Ein/Aus, Drehzahlregelung, Statusanzeige in Echtzeit. Auch wenn er
+              gerade nicht vor der Maschine steht.
+            </div>
           </div>
         </div>
       </section>

@@ -13,7 +13,7 @@ export default function Home() {
     const data = new FormData(form)
 
     try {
-      const res = await fetch('https://formspree.io/f/DEINE_FORM_ID', {
+      const res = await fetch('https://formspree.io/f/xlgoprwp', {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },

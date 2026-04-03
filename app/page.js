@@ -77,8 +77,9 @@ export default function Home() {
         .logo {
           font-family: var(--serif);
           font-size: 22px;
-          color: var(--text);
+          color: var(--text) !important;
           letter-spacing: -0.02em;
+          text-decoration: none;
         }
 
         .logo span { color: var(--accent); }
@@ -455,7 +456,7 @@ export default function Home() {
       `}</style>
 
       <nav>
-        <div className="logo">k<span>iot</span>ra</div>
+        <a href="/" className="logo">k<span>iot</span>ra</a>
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
           <a href="#kontakt">Kontakt</a>

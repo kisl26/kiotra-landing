@@ -7,6 +7,28 @@ export default function Datenschutz() {
   return (
     <>
       <style>{`
+        :root {
+          --bg: #0d0f0e;
+          --bg2: #131614;
+          --bg3: #1a1d1b;
+          --border: rgba(255,255,255,0.08);
+          --border2: rgba(255,255,255,0.14);
+          --text: #e8e6e0;
+          --muted: #7a7870;
+          --accent: #4ade80;
+          --serif: 'DM Serif Display', Georgia, serif;
+          --sans: 'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+          background: var(--bg);
+          color: var(--text);
+          font-family: var(--sans);
+          font-size: 16px;
+          line-height: 1.6;
+          -webkit-font-smoothing: antialiased;
+        }
+
         .legal-page {
           max-width: 720px;
           margin: 0 auto;

@@ -410,18 +410,24 @@ export default function Home() {
           margin: 0 auto;
         }
 
-        .footer-logo {
-          font-family: var(--serif);
-          font-size: 18px;
-          color: var(--muted);
-        }
-
-        .footer-logo span { color: var(--accent); }
-
         .footer-copy {
-          font-size: 12px;
+          font-size: 13px;
           color: var(--muted);
         }
+
+        .footer-links {
+          display: flex;
+          gap: 24px;
+        }
+
+        .footer-links a {
+          font-size: 13px;
+          color: var(--muted);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text); }
 
         /* ANIMATIONS */
         @keyframes fadeUp {
@@ -587,8 +593,11 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="footer-logo">k<span>iot</span>ra</div>
-        <div className="footer-copy">© 2025 Kiotra · Ein Produkt der athebo.com · info@kiotra.de</div>
+        <div className="footer-copy">© 2025 kiotra</div>
+        <div className="footer-links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
       </footer>
     </>
   )

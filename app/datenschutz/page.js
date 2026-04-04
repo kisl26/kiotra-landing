@@ -8,9 +8,9 @@ export default function Datenschutz() {
     <>
       <style>{`
         :root {
-          --bg: #ffffff;
-          --bg2: #f5f7f5;
-          --bg3: #eaede9;
+          --bg: #fafaf8;
+          --bg2: #f0f4f0;
+          --bg3: #e5e9e4;
           --border: rgba(0,0,0,0.08);
           --border2: rgba(0,0,0,0.14);
           --text: #1a1d1b;
@@ -43,7 +43,7 @@ export default function Datenschutz() {
           display: flex;
           align-items: center;
           border-bottom: 1px solid var(--border);
-          background: rgba(255,255,255,0.85);
+          background: rgba(250,250,248,0.85);
           backdrop-filter: blur(12px);
         }
 

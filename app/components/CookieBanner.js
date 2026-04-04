@@ -26,7 +26,7 @@ export default function CookieBanner() {
           left: 0;
           right: 0;
           z-index: 200;
-          background: #ffffff;
+          background: #fafaf8;
           border-top: 1px solid rgba(0,0,0,0.08);
           box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
           padding: 16px 40px;

@@ -26,8 +26,9 @@ export default function CookieBanner() {
           left: 0;
           right: 0;
           z-index: 200;
-          background: #131614;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.08);
+          box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
           padding: 16px 40px;
           display: flex;
           align-items: center;
@@ -38,14 +39,14 @@ export default function CookieBanner() {
         }
 
         .cookie-banner p {
-          color: #7a7870;
+          color: #5c6560;
           font-size: 13px;
           line-height: 1.5;
           margin: 0;
         }
 
         .cookie-banner a {
-          color: #4ade80;
+          color: #16a34a;
           text-decoration: none;
         }
 
@@ -54,8 +55,8 @@ export default function CookieBanner() {
         }
 
         .cookie-btn {
-          background: #4ade80;
-          color: #0d0f0e;
+          background: #16a34a;
+          color: #ffffff;
           border: none;
           padding: 10px 20px;
           border-radius: 6px;
@@ -68,7 +69,7 @@ export default function CookieBanner() {
         }
 
         .cookie-btn:hover {
-          background: #86efac;
+          background: #15803d;
         }
 
         @keyframes slideUp {

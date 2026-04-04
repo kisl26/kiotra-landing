@@ -36,15 +36,15 @@ export default function Home() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --bg: #0d0f0e;
-          --bg2: #131614;
-          --bg3: #1a1d1b;
-          --border: rgba(255,255,255,0.08);
-          --border2: rgba(255,255,255,0.14);
-          --text: #e8e6e0;
-          --muted: #7a7870;
-          --accent: #4ade80;
-          --accent2: #16a34a;
+          --bg: #ffffff;
+          --bg2: #f5f7f5;
+          --bg3: #eaede9;
+          --border: rgba(0,0,0,0.08);
+          --border2: rgba(0,0,0,0.14);
+          --text: #1a1d1b;
+          --muted: #5c6560;
+          --accent: #16a34a;
+          --accent-light: #dcfce7;
           --serif: 'DM Serif Display', Georgia, serif;
           --sans: 'DM Sans', system-ui, sans-serif;
         }
@@ -70,7 +70,7 @@ export default function Home() {
           align-items: center;
           justify-content: space-between;
           border-bottom: 1px solid var(--border);
-          background: rgba(13,15,14,0.85);
+          background: rgba(255,255,255,0.85);
           backdrop-filter: blur(12px);
         }
 
@@ -112,7 +112,8 @@ export default function Home() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          border: 1px solid var(--border2);
+          background: var(--accent-light);
+          border: 1px solid rgba(22,163,74,0.2);
           border-radius: 20px;
           padding: 5px 14px;
           font-size: 12px;
@@ -157,7 +158,7 @@ export default function Home() {
 
         .btn-primary {
           background: var(--accent);
-          color: #0d0f0e;
+          color: #ffffff;
           padding: 14px 28px;
           border-radius: 8px;
           font-weight: 500;
@@ -170,7 +171,7 @@ export default function Home() {
           font-family: var(--sans);
         }
 
-        .btn-primary:hover { background: #86efac; transform: translateY(-1px); }
+        .btn-primary:hover { background: #15803d; transform: translateY(-1px); }
 
         .btn-primary:disabled {
           opacity: 0.6;
@@ -189,7 +190,7 @@ export default function Home() {
           display: inline-block;
         }
 
-        .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+        .btn-secondary:hover { color: var(--text); border-color: rgba(0,0,0,0.25); }
 
         /* SECTION */
         section {
@@ -248,8 +249,8 @@ export default function Home() {
 
         .case-icon {
           width: 40px; height: 40px;
-          background: var(--bg3);
-          border: 1px solid var(--border2);
+          background: var(--accent-light);
+          border: 1px solid rgba(22,163,74,0.15);
           border-radius: 8px;
           display: flex;
           align-items: center;
@@ -300,7 +301,7 @@ export default function Home() {
         .step-num {
           font-family: var(--serif);
           font-size: 48px;
-          color: var(--border2);
+          color: rgba(22,163,74,0.2);
           line-height: 1;
           margin-bottom: 20px;
           letter-spacing: -0.03em;
@@ -390,14 +391,14 @@ export default function Home() {
 
         .form-message.success {
           color: var(--accent);
-          background: rgba(74, 222, 128, 0.1);
-          border: 1px solid rgba(74, 222, 128, 0.2);
+          background: var(--accent-light);
+          border: 1px solid rgba(22,163,74,0.2);
         }
 
         .form-message.error {
-          color: #f87171;
-          background: rgba(248, 113, 113, 0.1);
-          border: 1px solid rgba(248, 113, 113, 0.2);
+          color: #dc2626;
+          background: #fef2f2;
+          border: 1px solid rgba(220, 38, 38, 0.2);
         }
 
         /* FOOTER */
@@ -456,7 +457,7 @@ export default function Home() {
       `}</style>
 
       <nav>
-        <a href="/" className="logo">k<span>iot</span>ra</a>
+        <a href="/" className="logo">K<span>iot</span>ra</a>
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
           <a href="#kontakt">Kontakt</a>
@@ -606,7 +607,7 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="footer-copy">© 2025 kiotra</div>
+        <div className="footer-copy">© 2025 Kiotra</div>
         <div className="footer-links">
           <a href="/impressum">Impressum</a>
           <a href="/datenschutz">Datenschutz</a>

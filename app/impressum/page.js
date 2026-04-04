@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Impressum – kiotra',
-  description: 'Impressum der kiotra Website.',
+  title: 'Impressum – Kiotra',
+  description: 'Impressum der Kiotra Website.',
 }
 
 export default function Impressum() {
@@ -8,14 +8,14 @@ export default function Impressum() {
     <>
       <style>{`
         :root {
-          --bg: #0d0f0e;
-          --bg2: #131614;
-          --bg3: #1a1d1b;
-          --border: rgba(255,255,255,0.08);
-          --border2: rgba(255,255,255,0.14);
-          --text: #e8e6e0;
-          --muted: #7a7870;
-          --accent: #4ade80;
+          --bg: #ffffff;
+          --bg2: #f5f7f5;
+          --bg3: #eaede9;
+          --border: rgba(0,0,0,0.08);
+          --border2: rgba(0,0,0,0.14);
+          --text: #1a1d1b;
+          --muted: #5c6560;
+          --accent: #16a34a;
           --serif: 'DM Serif Display', Georgia, serif;
           --sans: 'DM Sans', system-ui, sans-serif;
         }
@@ -43,7 +43,7 @@ export default function Impressum() {
           display: flex;
           align-items: center;
           border-bottom: 1px solid var(--border);
-          background: rgba(13,15,14,0.85);
+          background: rgba(255,255,255,0.85);
           backdrop-filter: blur(12px);
         }
 
@@ -95,7 +95,7 @@ export default function Impressum() {
       `}</style>
 
       <nav className="legal-nav">
-        <a href="/">k<span>iot</span>ra</a>
+        <a href="/">K<span>iot</span>ra</a>
       </nav>
 
       <main className="legal-page">

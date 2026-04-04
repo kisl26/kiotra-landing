@@ -1,7 +1,7 @@
 import CookieBanner from './components/CookieBanner'
 
 export const metadata = {
-  title: 'kiotra - IoT für den Maschinenbau',
+  title: 'Kiotra - IoT für den Maschinenbau',
   description: 'Kiotra verbindet Ihre Maschinen mit der Cloud. Einfach. Sicher. Ohne großes IT-Projekt.',
 }
 

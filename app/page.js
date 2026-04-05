@@ -472,8 +472,7 @@ export default function Home() {
           ohne großes IT-Projekt. Ihre Kunden steuern ihre Maschinen per App vom Handy.
         </p>
         <div className="hero-actions">
-          <a href="#" className="btn-primary">Registrieren</a>
-          <a href="#" className="btn-secondary">Anmelden</a>
+          <a href="#" className="btn-primary">Hersteller-Login</a>
         </div>
       </div>
 

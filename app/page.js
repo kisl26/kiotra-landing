@@ -95,29 +95,6 @@ export default function Home() {
 
         .nav-links { display: flex; gap: 32px; align-items: center; }
 
-        .nav-btn-secondary {
-          padding: 8px 16px;
-          border: 1px solid var(--border2);
-          border-radius: 6px;
-          font-size: 14px;
-          color: var(--text) !important;
-          transition: border-color 0.2s, background 0.2s;
-        }
-
-        .nav-btn-secondary:hover { border-color: rgba(0,0,0,0.25); background: var(--bg2); }
-
-        .nav-btn-primary {
-          padding: 8px 16px;
-          background: var(--accent);
-          border-radius: 6px;
-          font-size: 14px;
-          font-weight: 500;
-          color: #ffffff !important;
-          transition: background 0.2s;
-        }
-
-        .nav-btn-primary:hover { background: #15803d; }
-
         /* HERO */
         .hero {
           min-height: 100vh;
@@ -484,8 +461,6 @@ export default function Home() {
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
           <a href="#kontakt">Kontakt</a>
-          <a href="#" className="nav-btn-secondary">Anmelden</a>
-          <a href="#" className="nav-btn-primary">Registrieren</a>
         </div>
       </nav>
 
@@ -496,6 +471,10 @@ export default function Home() {
           Kiotra verbindet Frequenzumrichter, Steuerungen und Industrieanlagen mit der Cloud —
           ohne großes IT-Projekt. Ihre Kunden steuern ihre Maschinen per App vom Handy.
         </p>
+        <div className="hero-actions">
+          <a href="#" className="btn-primary">Registrieren</a>
+          <a href="#" className="btn-secondary">Anmelden</a>
+        </div>
       </div>
 
       <section id="loesungen">

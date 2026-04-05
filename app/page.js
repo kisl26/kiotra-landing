@@ -472,7 +472,7 @@ export default function Home() {
           ohne großes IT-Projekt. Ihre Kunden steuern ihre Maschinen per App vom Handy.
         </p>
         <div className="hero-actions">
-          <a href="#" className="btn-primary">Hersteller-Login</a>
+          <a href="https://app.kiotra.de" className="btn-primary">Hersteller-Login</a>
         </div>
       </div>
 

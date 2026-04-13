@@ -305,7 +305,7 @@ export default function HardwarePage() {
         <div className="page-tag">Hardware</div>
         <h1>Das WLAN-Modul</h1>
         <p className="intro">
-          Ein kompaktes WLAN-Modul für die Hutschiene im Schaltschrank. Verbindet den
+          Ein industrielles WLAN-Modul für die Hutschiene im Schaltschrank. Verbindet den
           Frequenzumrichter per Modbus RTU mit der Kiotra-Cloud — ohne Eingriff in die
           bestehende Steuerung.
         </p>
@@ -313,34 +313,34 @@ export default function HardwarePage() {
         <h2>Technische Daten</h2>
         <div className="spec-grid">
           <div className="spec-card">
-            <div className="spec-label">Mikrocontroller</div>
-            <div className="spec-value">ESP32-S3</div>
-            <div className="spec-note">Dual-Core, 240 MHz, 8 MB Flash</div>
+            <div className="spec-label">Basis</div>
+            <div className="spec-value">WaveShare ESP32-S3</div>
+            <div className="spec-note">Industrial 6CH Relay Module</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Konnektivität</div>
-            <div className="spec-value">WLAN 2.4 GHz</div>
-            <div className="spec-note">802.11 b/g/n, WPA2</div>
+            <div className="spec-value">WLAN + Bluetooth</div>
+            <div className="spec-note">802.11 b/g/n, BLE 5.0</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Schnittstelle</div>
             <div className="spec-value">RS-485 / Modbus RTU</div>
-            <div className="spec-note">Halbduplex, bis 115.200 Baud</div>
+            <div className="spec-note">Integriert, bis 115.200 Baud</div>
+          </div>
+          <div className="spec-card">
+            <div className="spec-label">Relais</div>
+            <div className="spec-value">6 Kanäle</div>
+            <div className="spec-note">Für digitale Schaltausgänge</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Spannungsversorgung</div>
-            <div className="spec-value">24V DC</div>
-            <div className="spec-note">Direkt aus dem Schaltschrank</div>
+            <div className="spec-value">7–36V DC</div>
+            <div className="spec-note">Direkt aus dem Schaltschrank (24V)</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Montage</div>
             <div className="spec-value">Hutschiene (DIN)</div>
-            <div className="spec-note">Kompaktes Gehäuse, Hutschienenclip</div>
-          </div>
-          <div className="spec-card">
-            <div className="spec-label">Cloud-Protokoll</div>
-            <div className="spec-value">HTTPS / WebSocket</div>
-            <div className="spec-note">TLS-verschlüsselt, Supabase Realtime</div>
+            <div className="spec-note">Industriegehäuse, Schraubklemmen</div>
           </div>
         </div>
 
@@ -376,35 +376,35 @@ export default function HardwarePage() {
           </div>
         </div>
 
-        <h2>Komponenten</h2>
+        <h2>Alles in einem Modul</h2>
         <ul className="parts-list">
           <li>
-            <span className="part-name">ESP32-S3 DevKit</span>
-            <span className="part-desc">Herzstück des Moduls — WLAN, Rechenleistung, OTA-Updates</span>
+            <span className="part-name">ESP32-S3 Prozessor</span>
+            <span className="part-desc">Dual-Core, WLAN + Bluetooth, OTA-Updates über die Cloud</span>
           </li>
           <li>
-            <span className="part-name">RS-485 Transceiver</span>
-            <span className="part-desc">MAX485 oder vergleichbar — wandelt UART in RS-485 für Modbus RTU</span>
+            <span className="part-name">RS-485 integriert</span>
+            <span className="part-desc">Direkter Anschluss an den Modbus-Port des Frequenzumrichters</span>
           </li>
           <li>
-            <span className="part-name">24V → 3.3V Wandler</span>
-            <span className="part-desc">DC/DC Step-Down — versorgt den ESP32 direkt aus der Schaltschrank-Spannung</span>
+            <span className="part-name">6 Relais-Ausgänge</span>
+            <span className="part-desc">Für digitale Schaltbefehle — z.B. Ein/Aus, Richtungswechsel</span>
           </li>
           <li>
-            <span className="part-name">Hutschienengehäuse</span>
-            <span className="part-desc">Kompaktes DIN-Gehäuse mit Schraubklemmen für RS-485 und Stromversorgung</span>
+            <span className="part-name">7–36V Weitbereichseingang</span>
+            <span className="part-desc">Läuft direkt an 24V DC aus dem Schaltschrank, kein externer Wandler nötig</span>
           </li>
           <li>
-            <span className="part-name">Status-LEDs</span>
-            <span className="part-desc">WLAN-Verbindung, Cloud-Status, Modbus-Aktivität auf einen Blick</span>
+            <span className="part-name">Industriegehäuse</span>
+            <span className="part-desc">Hutschienenmontage, Schraubklemmen, Status-LEDs</span>
           </li>
         </ul>
 
         <h2>Installation</h2>
         <p>
-          Das Modul wird vom Elektriker auf die Hutschiene im Schaltschrank geclipst.
-          Zwei Drähte zum Modbus-Port des Frequenzumrichters (A+ / B−), 24V Spannungsversorgung
-          anklemmen, WLAN-Zugangsdaten über die Kiotra-App konfigurieren — fertig.
+          Modul auf die Hutschiene clipsen, RS-485 (A+ / B−) an den Modbus-Port des
+          Frequenzumrichters anklemmen, 24V Spannungsversorgung anschließen, WLAN-Zugangsdaten
+          über die Kiotra-App konfigurieren — fertig.
           Kein Eingriff in die bestehende Steuerung, keine CE-Problematik.
         </p>
 

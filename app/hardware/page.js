@@ -77,7 +77,7 @@ export default function HardwarePage() {
           color: var(--muted);
           text-decoration: none;
           font-size: 14px;
-          margin-bottom: 32px;
+          margin-bottom: 48px;
           transition: color 0.15s;
         }
 
@@ -249,36 +249,6 @@ export default function HardwarePage() {
           font-weight: 300;
         }
 
-        .cta-section {
-          background: var(--bg2);
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          padding: 40px;
-          text-align: center;
-          margin-top: 64px;
-        }
-
-        .cta-section p {
-          text-align: center;
-          max-width: 480px;
-          margin: 0 auto 24px;
-        }
-
-        .btn-primary {
-          background: var(--accent);
-          color: #ffffff;
-          padding: 14px 28px;
-          border-radius: 8px;
-          font-weight: 500;
-          font-size: 15px;
-          text-decoration: none;
-          transition: background 0.2s, transform 0.15s;
-          display: inline-block;
-          font-family: var(--sans);
-        }
-
-        .btn-primary:hover { background: #15803d; transform: translateY(-1px); }
-
         footer {
           border-top: 1px solid var(--border);
           padding: 32px 40px;
@@ -332,7 +302,7 @@ export default function HardwarePage() {
         <a href="/" className="back-link">← Zurück zur Startseite</a>
 
         <div className="page-tag">Hardware</div>
-        <h1>Das Kiotra-Modul</h1>
+        <h1>Das WLAN-Modul</h1>
         <p className="intro">
           Ein kompaktes WLAN-Modul für die Hutschiene im Schaltschrank. Verbindet den
           Frequenzumrichter per Modbus RTU mit der Kiotra-Cloud — ohne Eingriff in die
@@ -375,7 +345,7 @@ export default function HardwarePage() {
 
         <h2>So funktioniert die Kommunikation</h2>
         <p>
-          Das Kiotra-Modul sitzt zwischen Frequenzumrichter und Cloud. Es liest Sensordaten
+          Das WLAN-Modul sitzt zwischen Frequenzumrichter und Cloud. Es liest Sensordaten
           per Modbus RTU aus und sendet sie per WLAN an die Kiotra-Plattform. Steuerbefehle
           vom Endkunden (z.B. Drehzahl ändern) kommen über die Cloud zurück zum Modul und
           werden per Modbus an den Frequenzumrichter weitergegeben.
@@ -389,7 +359,7 @@ export default function HardwarePage() {
             </div>
             <div className="diagram-arrow">⇄</div>
             <div className="diagram-box highlight">
-              Kiotra-Modul
+              WLAN-Modul
               <div className="diagram-label">ESP32 + RS-485</div>
             </div>
             <div className="diagram-arrow">⇄</div>
@@ -437,14 +407,6 @@ export default function HardwarePage() {
           Kein Eingriff in die bestehende Steuerung, keine CE-Problematik.
         </p>
 
-        <div className="cta-section">
-          <h2 style={{marginTop: 0}}>Interesse?</h2>
-          <p>
-            Wir liefern das Modul fertig konfiguriert für Ihre Maschine.
-            Sprechen Sie uns an.
-          </p>
-          <a href="/#kontakt" className="btn-primary">Kontakt aufnehmen</a>
-        </div>
       </div>
 
       <footer>

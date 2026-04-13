@@ -84,7 +84,8 @@ export default function HardwarePage() {
         .back-link:hover { color: var(--accent); }
 
         .page-tag {
-          display: inline-flex;
+          display: flex;
+          width: fit-content;
           align-items: center;
           gap: 8px;
           background: var(--accent-light);

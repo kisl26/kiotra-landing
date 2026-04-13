@@ -513,13 +513,13 @@ export default function Home() {
             <div className="case-tag">→ Hardware ansehen</div>
           </a>
           <div className="case-card">
-            <div className="case-icon">🔧</div>
-            <div className="case-title">White Label</div>
+            <div className="case-icon">🎛</div>
+            <div className="case-title">Konfigurierbare App</div>
             <div className="case-desc">
-              Die App erscheint unter Ihrem Markennamen. Ihr Logo, Ihre Farben, Ihre Domain.
-              Kiotra arbeitet unsichtbar im Hintergrund.
+              Jeder Hersteller konfiguriert die App für seine Maschinen selbst — welche Sensoren
+              angezeigt werden, Warnschwellen, Einheiten und ob der Endkunde steuern darf.
             </div>
-            <div className="case-tag">→ Auf Anfrage</div>
+            <div className="case-tag">→ Kein Code nötig</div>
           </div>
         </div>
       </section>

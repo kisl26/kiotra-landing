@@ -123,6 +123,22 @@ export default function HardwarePage() {
           margin-bottom: 56px;
         }
 
+        .product-image {
+          background: var(--bg2);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 40px;
+          text-align: center;
+          margin-bottom: 56px;
+        }
+
+        .product-image img {
+          max-width: 360px;
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+
         h2 {
           font-family: var(--serif);
           font-size: 28px;
@@ -309,6 +325,10 @@ export default function HardwarePage() {
           Frequenzumrichter per Modbus RTU mit der Kiotra-Cloud — ohne Eingriff in die
           bestehende Steuerung.
         </p>
+
+        <div className="product-image">
+          <img src="/waveshare-esp32-s3-relay.jpg" alt="WaveShare ESP32-S3 Industrial 6CH WiFi Relay Module" />
+        </div>
 
         <h2>Technische Daten</h2>
         <div className="spec-grid">

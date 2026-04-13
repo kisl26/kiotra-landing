@@ -460,6 +460,7 @@ export default function Home() {
         <a href="/" className="logo">K<span>iot</span>ra</a>
         <div className="nav-links">
           <a href="#loesungen">Lösungen</a>
+          <a href="/hardware">Hardware</a>
           <a href="#kontakt">Kontakt</a>
         </div>
       </nav>
@@ -495,22 +496,22 @@ export default function Home() {
           </div>
           <div className="case-card">
             <div className="case-icon">📡</div>
-            <div className="case-title">Fernüberwachung</div>
+            <div className="case-title">Dashboard & Fernüberwachung</div>
             <div className="case-desc">
-              Betriebsstunden, Fehlercode-Alarme und Statusmeldungen per Push-Nachricht.
-              Ihr Kundendienst sieht Probleme bevor der Kunde anruft.
+              Alle Maschinen Ihrer Kunden auf einen Blick. Betriebsstunden, Fehlercode-Alarme
+              und Statusmeldungen in Echtzeit. Ihr Service-Team sieht Probleme bevor der Kunde anruft.
             </div>
             <div className="case-tag">→ Auf Anfrage</div>
           </div>
-          <div className="case-card">
-            <div className="case-icon">🏭</div>
-            <div className="case-title">Hersteller-Dashboard</div>
+          <a href="/hardware" className="case-card">
+            <div className="case-icon">🔌</div>
+            <div className="case-title">Hardware</div>
             <div className="case-desc">
-              Alle Ihrer Kunden auf einen Blick. Welche Maschinen laufen, welche offline sind,
-              wann die letzte Wartung war. Ihr Service-Team hat immer den Überblick.
+              Kompaktes WLAN-Modul für den Schaltschrank. Kommuniziert per Modbus RTU
+              mit dem Frequenzumrichter — plug & play, kein Eingriff in die Steuerung.
             </div>
-            <div className="case-tag">→ Auf Anfrage</div>
-          </div>
+            <div className="case-tag">→ Hardware ansehen</div>
+          </a>
           <div className="case-card">
             <div className="case-icon">🔧</div>
             <div className="case-title">White Label</div>

@@ -194,49 +194,79 @@ export default function HardwarePage() {
         }
 
         .diagram {
-          background: var(--bg2);
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          padding: 40px;
           margin: 32px 0 48px;
-          text-align: center;
         }
 
         .diagram-flow {
-          display: flex;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
           align-items: center;
-          justify-content: center;
-          gap: 12px;
-          flex-wrap: wrap;
+          gap: 0;
         }
 
-        .diagram-box {
+        .diagram-node {
           background: white;
           border: 1px solid var(--border2);
-          border-radius: 8px;
-          padding: 16px 20px;
+          border-radius: 10px;
+          padding: 20px 16px;
+          text-align: center;
+        }
+
+        .diagram-node.highlight {
+          border-color: var(--accent);
+          border-width: 2px;
+        }
+
+        .diagram-name {
           font-size: 14px;
           font-weight: 500;
           color: var(--text);
-          min-width: 140px;
+          margin-bottom: 4px;
         }
 
-        .diagram-box.highlight {
-          border-color: var(--accent);
-          background: var(--accent-light);
+        .diagram-node.highlight .diagram-name {
           color: var(--accent);
         }
 
-        .diagram-arrow {
-          font-size: 20px;
-          color: var(--muted);
-        }
-
-        .diagram-label {
+        .diagram-protocol {
           font-size: 11px;
           color: var(--muted);
-          margin-top: 6px;
           font-weight: 300;
+        }
+
+        .diagram-connector {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 0 4px;
+        }
+
+        .diagram-line {
+          width: 100%;
+          min-width: 24px;
+          height: 2px;
+          background: var(--border2);
+          position: relative;
+        }
+
+        .diagram-line::after {
+          content: '';
+          position: absolute;
+          right: -1px;
+          top: -3px;
+          width: 0;
+          height: 0;
+          border-top: 4px solid transparent;
+          border-bottom: 4px solid transparent;
+          border-left: 6px solid var(--border2);
+        }
+
+        .diagram-connector-label {
+          font-size: 10px;
+          color: var(--muted);
+          font-weight: 400;
+          margin-top: 6px;
+          white-space: nowrap;
         }
 
         .parts-list {
@@ -299,8 +329,28 @@ export default function HardwarePage() {
           nav { padding: 16px 20px; }
           .content { padding: 100px 20px 60px; }
           .spec-grid { grid-template-columns: 1fr; }
-          .diagram-flow { flex-direction: column; }
-          .diagram-arrow { transform: rotate(90deg); }
+          .diagram-flow {
+            grid-template-columns: 1fr;
+            gap: 0;
+          }
+          .diagram-connector {
+            padding: 4px 0;
+          }
+          .diagram-line {
+            width: 2px;
+            min-width: 2px;
+            height: 20px;
+            margin: 0 auto;
+          }
+          .diagram-line::after {
+            right: auto;
+            left: -3px;
+            top: auto;
+            bottom: -1px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 6px solid var(--border2);
+          }
           .parts-list li { flex-direction: column; gap: 4px; }
           .part-name { min-width: auto; }
           footer { flex-direction: column; gap: 12px; padding: 24px 20px; text-align: center; }
@@ -374,24 +424,33 @@ export default function HardwarePage() {
 
         <div className="diagram">
           <div className="diagram-flow">
-            <div className="diagram-box">
-              Frequenzumrichter
-              <div className="diagram-label">Modbus RTU</div>
+            <div className="diagram-node">
+              <div className="diagram-name">Frequenz&shy;umrichter</div>
+              <div className="diagram-protocol">Maschine</div>
             </div>
-            <div className="diagram-arrow">⇄</div>
-            <div className="diagram-box highlight">
-              WLAN-Modul
-              <div className="diagram-label">ESP32 + RS-485</div>
+            <div className="diagram-connector">
+              <div className="diagram-line" />
+              <div className="diagram-connector-label">RS-485</div>
             </div>
-            <div className="diagram-arrow">⇄</div>
-            <div className="diagram-box">
-              Kiotra Cloud
-              <div className="diagram-label">WLAN / HTTPS</div>
+            <div className="diagram-node highlight">
+              <div className="diagram-name">WLAN-Modul</div>
+              <div className="diagram-protocol">ESP32-S3</div>
             </div>
-            <div className="diagram-arrow">⇄</div>
-            <div className="diagram-box">
-              Endkunde-App
-              <div className="diagram-label">Browser / PWA</div>
+            <div className="diagram-connector">
+              <div className="diagram-line" />
+              <div className="diagram-connector-label">WLAN</div>
+            </div>
+            <div className="diagram-node">
+              <div className="diagram-name">Kiotra Cloud</div>
+              <div className="diagram-protocol">Server</div>
+            </div>
+            <div className="diagram-connector">
+              <div className="diagram-line" />
+              <div className="diagram-connector-label">HTTPS</div>
+            </div>
+            <div className="diagram-node">
+              <div className="diagram-name">Endkunde-App</div>
+              <div className="diagram-protocol">Browser / PWA</div>
             </div>
           </div>
         </div>

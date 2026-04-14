@@ -798,7 +798,7 @@ export default function HardwarePage() {
             <div className="spec-note">Industriegehäuse, Schraubklemmen</div>
           </div>
           <div className="spec-card">
-            <div className="spec-label">Maße</div>
+            <div className="spec-label">Abmessungen</div>
             <div className="spec-value">91.6 × 23.3 × 58.7 mm</div>
             <div className="spec-note">Kompaktes Format für jeden Schaltschrank</div>
           </div>
@@ -866,8 +866,9 @@ export default function HardwarePage() {
         <h2>Woher kommen die Sensordaten?</h2>
         <p>
           Das WLAN-Modul hat keine eigenen Sensoreingänge. Alle Messwerte werden über
-          den Modbus-RTU-Bus ausgelesen — entweder direkt aus dem Frequenzumrichter oder
-          von zusätzlichen I/O-Modulen auf demselben Bus.
+          den Modbus-RTU-Bus ausgelesen — in erster Linie direkt aus dem Frequenzumrichter.
+          Zusätzliche Sensoren werden bevorzugt an die freien Eingänge des FU angeschlossen.
+          Erst wenn diese belegt sind, kommen separate I/O-Module hinzu.
         </p>
 
         <div className="sensor-subsection">
@@ -889,17 +890,17 @@ export default function HardwarePage() {
         </div>
 
         <div className="sensor-subsection">
-          <h3>Zusätzliche Sensoren — optional</h3>
+          <h3>Zusätzliche Sensoren — über den Frequenzumrichter</h3>
           <p>
-            Für Messwerte, die der Frequenzumrichter nicht liefert (z.B. Druck, Durchfluss,
-            Füllstand, externe Temperatur), wird ein Modbus-I/O-Erweiterungsmodul auf denselben
-            RS-485-Bus geschaltet. Dieses Modul wandelt analoge Sensorsignale (4–20 mA, 0–10V)
-            in Modbus-Register um.
+            Die meisten modernen Frequenzumrichter verfügen über freie Analog- und Digitaleingänge
+            (z.B. 4–20 mA, 0–10V, potentialfreie Kontakte). Externe Sensoren können direkt an diese
+            Eingänge angeschlossen werden — die Messwerte sind dann über die Modbus-Register des
+            Frequenzumrichters auslesbar, ohne zusätzliche Hardware.
           </p>
           <p>
-            Das I/O-Modul erhält eine eigene Modbus-Adresse und wird ebenfalls auf der Hutschiene
-            montiert. Es teilt sich die 24V-Versorgung und den RS-485-Bus (A+/B−) mit dem
-            WLAN-Modul — ein zusätzliches 2-adriges Kabel genügt.
+            Erst wenn alle Eingänge am Frequenzumrichter belegt sind, kommt ein separates
+            Modbus-I/O-Erweiterungsmodul auf denselben RS-485-Bus. Dieses Modul erhält eine
+            eigene Modbus-Adresse und wird ebenfalls auf der Hutschiene montiert.
           </p>
           <div className="sensor-values">
             <span className="sensor-chip">Druck <span className="sensor-unit">bar</span></span>
@@ -967,13 +968,10 @@ export default function HardwarePage() {
             </div>
             <ul className="checklist-items">
               <li className="checklist-item">
-                1&times; Modbus-RTU-I/O-Modul (Hutschiene, 24V DC, z.B. Waveshare Modbus RTU IO)
+                Sensoren mit Analogausgang (4–20 mA oder 0–10V) — an freie Eingänge des Frequenzumrichters
               </li>
               <li className="checklist-item">
-                Sensoren mit Analogausgang (4–20 mA oder 0–10V)
-              </li>
-              <li className="checklist-item">
-                Weiteres RS-485-Kabel (parallel am selben Bus, A+/B−)
+                Nur wenn FU-Eingänge belegt: Modbus-RTU-I/O-Modul (Hutschiene, 24V DC) + RS-485-Kabel
               </li>
             </ul>
           </div>
@@ -987,10 +985,10 @@ export default function HardwarePage() {
           Kein Eingriff in die bestehende Steuerung, keine CE-Problematik.
         </p>
         <p>
-          Für zusätzliche Sensoren: Das I/O-Erweiterungsmodul wird ebenfalls auf die Hutschiene
-          montiert und an denselben RS-485-Bus angeschlossen (A+/B− parallel verdrahten). In der
-          Kiotra-App wird die Modbus-Adresse des I/O-Moduls hinterlegt — die Sensoren werden
-          dann automatisch mit ausgelesen.
+          Für zusätzliche Sensoren: Bevorzugt an die freien Analog-/Digitaleingänge des
+          Frequenzumrichters anschließen — die Werte werden über dieselben Modbus-Register
+          mit ausgelesen. Erst wenn alle FU-Eingänge belegt sind, wird ein separates
+          I/O-Erweiterungsmodul auf denselben RS-485-Bus geschaltet.
         </p>
 
       </div>

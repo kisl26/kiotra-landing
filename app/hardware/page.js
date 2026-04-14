@@ -437,89 +437,121 @@ export default function HardwarePage() {
           letter-spacing: 0.02em;
         }
 
-        /* Simplified bus diagram for all screen sizes */
-        .bus-simple {
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-          align-items: center;
+        /* Communication flow diagram */
+        .comm-diagram {
           margin: 32px 0 48px;
-          padding: 24px;
+          padding: 32px 20px;
           background: var(--bg2);
           border: 1px solid var(--border);
-          border-radius: 12px;
+          border-radius: 16px;
+          overflow-x: auto;
         }
 
-        .bus-simple-row {
+        .comm-flow {
           display: flex;
           align-items: center;
-          gap: 12px;
-          width: 100%;
           justify-content: center;
-          flex-wrap: wrap;
+          gap: 0;
+          min-width: 640px;
         }
 
-        .bus-simple-sources {
+        .comm-stage {
           display: flex;
           flex-direction: column;
           gap: 8px;
-          align-items: flex-end;
-        }
-
-        .bus-simple-node {
-          background: white;
-          border: 1px solid var(--border2);
-          border-radius: 10px;
-          padding: 14px 16px;
-          text-align: center;
-          min-width: 110px;
-        }
-
-        .bus-simple-node.highlight {
-          border-color: var(--accent);
-          border-width: 2px;
-        }
-
-        .bus-simple-node.optional {
-          border-style: dashed;
-        }
-
-        .bus-simple-arrow {
-          color: var(--border2);
-          font-size: 18px;
           flex-shrink: 0;
         }
 
-        .bus-simple-arrow-label {
-          font-size: 10px;
-          color: var(--muted);
+        .comm-node {
+          background: white;
+          border: 1px solid var(--border2);
+          border-radius: 12px;
+          padding: 14px 16px;
           text-align: center;
-          margin-top: 2px;
+          min-width: 110px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
 
-        .bus-simple-arrow-group {
+        .comm-node-name {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text);
+          line-height: 1.3;
+        }
+
+        .comm-node-sub {
+          font-size: 11px;
+          color: var(--muted);
+          font-weight: 300;
+          margin-top: 3px;
+        }
+
+        .comm-node.gateway {
+          border: 2px solid var(--accent);
+          background: linear-gradient(160deg, #f0fdf4 0%, #ffffff 100%);
+          box-shadow: 0 4px 20px rgba(22,163,74,0.12);
+          padding: 16px 20px;
+        }
+
+        .comm-node.gateway .comm-node-name {
+          color: var(--accent);
+          font-size: 14px;
+        }
+
+        .comm-node.dashed {
+          border-style: dashed;
+          border-color: rgba(0,0,0,0.18);
+        }
+
+        .comm-tag {
+          display: inline-block;
+          font-size: 9px;
+          color: var(--muted);
+          background: var(--bg2);
+          border: 1px solid var(--border);
+          border-radius: 8px;
+          padding: 1px 6px;
+          margin-top: 4px;
+          font-weight: 400;
+          letter-spacing: 0.02em;
+        }
+
+        .comm-connector {
           display: flex;
           flex-direction: column;
           align-items: center;
+          padding: 0 6px;
+          flex-shrink: 0;
         }
 
-        .bus-simple-bus {
-          background: var(--accent-light);
-          border: 2px solid var(--accent);
-          border-radius: 8px;
-          padding: 8px 16px;
-          font-size: 12px;
+        .comm-line {
+          width: 36px;
+          height: 2px;
+          background: linear-gradient(90deg, var(--border2), rgba(0,0,0,0.22));
+          position: relative;
+          border-radius: 1px;
+        }
+
+        .comm-line::after {
+          content: '';
+          position: absolute;
+          right: -1px;
+          top: -4px;
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 7px solid rgba(0,0,0,0.22);
+        }
+
+        .comm-protocol {
+          font-size: 9px;
           font-weight: 600;
-          color: var(--accent);
-          text-align: center;
+          color: var(--muted);
+          margin-top: 8px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           white-space: nowrap;
-        }
-
-        .bus-simple-brace {
-          font-size: 32px;
-          color: var(--border2);
-          line-height: 1;
-          font-weight: 200;
         }
 
         /* Sensor data section */
@@ -730,10 +762,24 @@ export default function HardwarePage() {
             border-right: 4px solid transparent;
             border-top: 6px solid var(--border2);
           }
-          .bus-simple-row { flex-direction: column; gap: 8px; }
-          .bus-simple-sources { align-items: center; flex-direction: row; gap: 8px; }
-          .bus-simple-brace { transform: rotate(90deg); }
-          .bus-simple-arrow { transform: rotate(90deg); }
+          .comm-diagram { padding: 24px 16px; }
+          .comm-flow { min-width: 0; flex-direction: column; }
+          .comm-stage { flex-direction: row; gap: 8px; justify-content: center; }
+          .comm-line {
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--border2), rgba(0,0,0,0.22));
+          }
+          .comm-line::after {
+            right: auto;
+            left: -4px;
+            top: auto;
+            bottom: -1px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 7px solid rgba(0,0,0,0.22);
+            border-bottom: none;
+          }
           .sensor-subsection { padding: 20px; }
           .sensor-values { gap: 6px; }
           .parts-list li { flex-direction: column; gap: 4px; }
@@ -813,52 +859,48 @@ export default function HardwarePage() {
           per Modbus an den Frequenzumrichter weitergegeben.
         </p>
 
-        <div className="bus-simple">
-          <div className="bus-simple-row">
-            <div className="bus-simple-sources">
-              <div className="bus-simple-node">
-                <div className="diagram-name">Frequenz&shy;umrichter</div>
-                <div className="diagram-protocol">Modbus Slave 1</div>
+        <div className="comm-diagram">
+          <div className="comm-flow">
+            <div className="comm-stage">
+              <div className="comm-node">
+                <div className="comm-node-name">Frequenz&shy;umrichter</div>
+                <div className="comm-node-sub">Modbus Slave 1</div>
               </div>
-              <div className="bus-simple-node optional">
-                <div className="diagram-name">I/O-Modul</div>
-                <div className="diagram-protocol">Modbus Slave 2</div>
-                <div className="optional-tag">optional</div>
+              <div className="comm-node dashed">
+                <div className="comm-node-name">I/O-Modul</div>
+                <div className="comm-node-sub">Modbus Slave 2</div>
+                <div className="comm-tag">optional</div>
               </div>
             </div>
 
-            <div className="bus-simple-brace">&#125;</div>
-
-            <div className="bus-simple-bus">RS-485 Bus</div>
-
-            <div className="bus-simple-arrow-group">
-              <div className="bus-simple-arrow">&harr;</div>
-              <div className="bus-simple-arrow-label">Modbus RTU</div>
+            <div className="comm-connector">
+              <div className="comm-line"></div>
+              <div className="comm-protocol">RS-485</div>
             </div>
 
-            <div className="bus-simple-node highlight">
-              <div className="diagram-name">WLAN-Modul</div>
-              <div className="diagram-protocol">ESP32-S3 (Master)</div>
+            <div className="comm-node gateway">
+              <div className="comm-node-name">WLAN-Modul</div>
+              <div className="comm-node-sub">ESP32-S3 (Master)</div>
             </div>
 
-            <div className="bus-simple-arrow-group">
-              <div className="bus-simple-arrow">&harr;</div>
-              <div className="bus-simple-arrow-label">WLAN</div>
+            <div className="comm-connector">
+              <div className="comm-line"></div>
+              <div className="comm-protocol">WLAN</div>
             </div>
 
-            <div className="bus-simple-node">
-              <div className="diagram-name">Kiotra Cloud</div>
-              <div className="diagram-protocol">Server</div>
+            <div className="comm-node">
+              <div className="comm-node-name">Kiotra Cloud</div>
+              <div className="comm-node-sub">Server</div>
             </div>
 
-            <div className="bus-simple-arrow-group">
-              <div className="bus-simple-arrow">&harr;</div>
-              <div className="bus-simple-arrow-label">HTTPS</div>
+            <div className="comm-connector">
+              <div className="comm-line"></div>
+              <div className="comm-protocol">HTTPS</div>
             </div>
 
-            <div className="bus-simple-node">
-              <div className="diagram-name">Endkunde-App</div>
-              <div className="diagram-protocol">Browser / PWA</div>
+            <div className="comm-node">
+              <div className="comm-node-name">Endkunde-App</div>
+              <div className="comm-node-sub">Browser / PWA</div>
             </div>
           </div>
         </div>

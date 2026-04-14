@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Hardware – Kiotra',
-  description: 'ESP32-basiertes WLAN-Modul für den Schaltschrank. Modbus RTU, kompakt, plug & play.',
+  description: 'ESP32-basiertes WLAN-Modul für den Schaltschrank. RS-485 + CAN-Bus, kompakt, plug & play.',
 }
 
 export default function HardwarePage() {
@@ -762,7 +762,7 @@ export default function HardwarePage() {
         </p>
 
         <div className="product-image">
-          <img src="/waveshare-esp32-s3-relay.jpg" alt="WaveShare ESP32-S3 Industrial 6CH WiFi Relay Module" />
+          <img src="/waveshare-esp32-s3-rs485-can.jpg" alt="WaveShare ESP32-S3 Control Board mit RS485 und CAN" />
         </div>
 
         <h2>Technische Daten</h2>
@@ -770,7 +770,7 @@ export default function HardwarePage() {
           <div className="spec-card">
             <div className="spec-label">Basis</div>
             <div className="spec-value">WaveShare ESP32-S3</div>
-            <div className="spec-note">Industrial 6CH Relay Module</div>
+            <div className="spec-note">Industrial Control Board (RS485 + CAN)</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Konnektivität</div>
@@ -779,13 +779,13 @@ export default function HardwarePage() {
           </div>
           <div className="spec-card">
             <div className="spec-label">Schnittstelle</div>
-            <div className="spec-value">RS-485 / Modbus RTU</div>
-            <div className="spec-note">Integriert, bis 115.200 Baud</div>
+            <div className="spec-value">RS-485 + CAN</div>
+            <div className="spec-note">Beide isoliert, Modbus RTU + CAN 2.0</div>
           </div>
           <div className="spec-card">
-            <div className="spec-label">Relais</div>
-            <div className="spec-value">6 Kanäle</div>
-            <div className="spec-note">Für digitale Schaltausgänge</div>
+            <div className="spec-label">CAN-Bus</div>
+            <div className="spec-value">CAN 2.0 / isoliert</div>
+            <div className="spec-note">Für CANopen-fähige Frequenzumrichter</div>
           </div>
           <div className="spec-card">
             <div className="spec-label">Spannungsversorgung</div>
@@ -796,6 +796,11 @@ export default function HardwarePage() {
             <div className="spec-label">Montage</div>
             <div className="spec-value">Hutschiene (DIN)</div>
             <div className="spec-note">Industriegehäuse, Schraubklemmen</div>
+          </div>
+          <div className="spec-card">
+            <div className="spec-label">Maße</div>
+            <div className="spec-value">91.6 × 23.3 × 58.7 mm</div>
+            <div className="spec-note">Kompaktes Format für jeden Schaltschrank</div>
           </div>
         </div>
 
@@ -916,8 +921,8 @@ export default function HardwarePage() {
             <span className="part-desc">Integrierter Modbus-Master — mehrere Teilnehmer auf einem Bus (FU, I/O-Module)</span>
           </li>
           <li>
-            <span className="part-name">6 Relais-Ausgänge</span>
-            <span className="part-desc">Für digitale Schaltbefehle — z.B. Ein/Aus, Richtungswechsel</span>
+            <span className="part-name">CAN-Bus (isoliert)</span>
+            <span className="part-desc">Für Frequenzumrichter mit CANopen-Schnittstelle — alternative Kommunikation neben Modbus</span>
           </li>
           <li>
             <span className="part-name">7–36V Weitbereichseingang</span>
@@ -926,6 +931,10 @@ export default function HardwarePage() {
           <li>
             <span className="part-name">Industriegehäuse</span>
             <span className="part-desc">Hutschienenmontage, Schraubklemmen, Status-LEDs</span>
+          </li>
+          <li>
+            <span className="part-name">Kompaktes Format</span>
+            <span className="part-desc">Nur 91.6 × 23.3 mm Grundfläche — passt in jeden Schaltschrank</span>
           </li>
         </ul>
 
@@ -938,7 +947,7 @@ export default function HardwarePage() {
             </div>
             <ul className="checklist-items">
               <li className="checklist-item">
-                1&times; WaveShare ESP32-S3 Industrial 6CH WiFi Relay Module
+                1&times; WaveShare ESP32-S3 Control Board (RS485 + CAN)
               </li>
               <li className="checklist-item">
                 RS-485-Kabel (2-adrig, z.B. CAT5) zum Modbus-Port des Frequenzumrichters
